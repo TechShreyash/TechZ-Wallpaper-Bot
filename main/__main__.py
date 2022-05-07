@@ -1,5 +1,5 @@
 from main import app
-import pyrogram, ramdom
+import pyrogram, random
 from pyrogram import filters, idle
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
