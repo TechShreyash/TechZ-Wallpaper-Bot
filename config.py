@@ -14,3 +14,5 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 WALL_API = "https://techzbotsapi.herokuapp.com/wall?query="
 
 UNSPLASH_API = "https://techzbotsapi.herokuapp.com/unsplash?query="
+
+MONGO_DB_URI = getenv("MONGO_DB_URI","mongodb+srv://techz:wall@techzwallbotdb.katsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")

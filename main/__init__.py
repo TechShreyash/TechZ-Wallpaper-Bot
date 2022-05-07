@@ -1,6 +1,7 @@
 import aiohttp
 from pyrogram import Client
 from config import *
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 
 app = Client(
   "bot",
@@ -14,3 +15,7 @@ app.start()
 
 print("[INFO]: STARTING AIOHTTP CLIENT")
 session = aiohttp.ClientSession()
+
+print("[INFO]: STARTING MONGO DB CLIENT")
+mongo_client = MongoClient(MONGO_DB_URI)
+db = mongo_client.walldb

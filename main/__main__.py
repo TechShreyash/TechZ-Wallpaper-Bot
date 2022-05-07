@@ -4,6 +4,7 @@ from pyrogram import filters, idle
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
 from main.wall import get_wallpapers, get_unsplash
+from main.db_funcs import *
 
 START = """
 **🔮 Hello There, You Can Use Me To Download HD Wallpapers...**
@@ -53,9 +54,11 @@ async def logo(bot, message: Message):
     wall = random.choice(wall)
       
     await x.edit("`🔄 Got It... Now Sending You`")
+    
+    id = await save_image(wall)
 
-    photo = await message.reply_photo(wall,caption="**🏞 Wallpaper By @TechZLogoMakerBot**")
-    await photo.reply_document(wall,caption="**🏞 Wallpaper By @TechZLogoMakerBot**")
+    await message.reply_photo(wall,caption="**🏞 Wallpaper By @TechZWallBot**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Upload As File 📁", callback_data=f"wall {id}")]])))
+    
     await x.delete()
   except FloodWait:
     pass
@@ -86,8 +89,10 @@ async def logo(bot, message: Message):
       
     await x.edit("`🔄 Got It... Now Sending You`")
 
-    photo = await message.reply_photo(wall,caption="**🏞 Wallpaper By @TechZLogoMakerBot**")
-    await photo.reply_document(wall,caption="**🏞 Wallpaper By @TechZLogoMakerBot**")
+    id = await save_image(wall)
+    
+    await message.reply_photo(wall,caption="**🏞 Wallpaper By @TechZWallBot**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Upload As File 📁", callback_data=f"wall {id}")]])))
+    
     await x.delete()
   except FloodWait:
     pass
@@ -108,7 +113,27 @@ async def start_menu(_,query):
 async def help_menu(_,query):
   await query.answer()
   await query.message.edit(HELP,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="start_menu")]]))
-  
+
+@app.on_callback_query(filters.regex("wall"))
+async def logo_doc(_,query):
+  await query.answer()
+  try:
+    x = await query.message.reply_text("`🔄 Sending You The Wallpaper As File`")
+    await query.message.edit_reply_markup(reply_markup=None)
+    id = query.data.replace("wall","").strip()
+    link = await get_image(id)
+    await query.message.reply_document(link,caption="**🏞 Wallpaper By @TechZWallBot**")
+    await del_image(id)
+  except FloodWait:
+    pass
+  except Exception as e:
+    try:
+      return await x.edit(f"`❌ Something Went Wrong...`\n\nReport This Error In @TechZBots_Support \n\n`{str(e)}`")
+    except:
+      return
+    
+  return await x.delete()
+
 
 if __name__ == "__main__":
   print("==================================")
