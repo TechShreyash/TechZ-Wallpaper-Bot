@@ -3,7 +3,7 @@ import pyrogram, random
 from pyrogram import filters, idle
 from pyrogram.errors import FloodWait
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
-from main.wall import generate_logo
+from main.wall import get_wallpapers, get_unsplash
 
 START = """
 **🔮 Hello There, You Can Use Me To Download HD Wallpapers...**
