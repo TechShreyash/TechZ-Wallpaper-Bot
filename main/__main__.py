@@ -51,6 +51,9 @@ async def logo(bot, message: Message):
     if "error" in wall:
       return await x.edit(f"`❌ Something Went Wrong...`\n\nReport This Error In @TechZBots_Support \n\n`{wall}`")
     
+    if "nonee" in wall:
+      return await x.edit(f"`❌ Something Went Wrong...`\n\n`{wall}`")
+    
     img = random.choice(wall)
       
     await x.edit("`🔄 Got It... Now Sending You`")
@@ -84,6 +87,9 @@ async def logo(bot, message: Message):
       
     if "error" in wall:
       return await x.edit(f"`❌ Something Went Wrong...`\n\nReport This Error In @TechZBots_Support \n\n`{wall}`")
+    
+    if "nonee" in wall:
+      return await x.edit(f"`❌ Something Went Wrong...`\n\n`{wall}`")
     
     wall = random.choice(wall)
       
