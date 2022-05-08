@@ -13,6 +13,7 @@
 ### ♻️ Features
 * High Quality 4k Wallpapers
 * Get Direct File Uploaded To Telegram
+* Mongo Db To Store Links Of Images ( To send it later as file )
 > Want links of wallpapers? Try using the api :)
 
 ### 🧲 Required Variables
@@ -20,7 +21,7 @@
 * `APP_ID` - Get this value from my.telegram.org
 * `API_HASH` - Get this value from my.telegram.org
 * `BOT_TOKEN` - Get this from @BotFather
-
+* `MONGO_URL` - (Optional) Get this from mongodb.com
 ### 📤 Deploy
 <p><a href="https://heroku.com/deploy?template=https://github.com/TechShreyash/TechZ-Wallpaper-Bot.git"><img src="https://img.shields.io/badge/Deploy%20To%20Heroku-blueviolet?style=for-the-badge&logo=heroku" width="200""/></a></p>
 
