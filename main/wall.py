@@ -8,10 +8,10 @@ async def get_wallpapers(query: str):
     json = await resp.json()
     images = json["images"]
     if len(images) == 0:
-      return "nonee" + "Can't find the wallpaper you are trying to search..."
+      return "nonee " + "Can't find the wallpaper you are trying to search..."
     random.shuffle(images)
   except Exception as e:
-    return "error" + str(e)      
+    return "error " + str(e)      
   return images
 
 async def get_unsplash(query: str):  
@@ -21,8 +21,8 @@ async def get_unsplash(query: str):
     json = await resp.json()
     images = json["images"]
     if len(images) == 0:
-      return "nonee" + "Can't find the wallpaper you are trying to search..."
+      return "nonee " + "Can't find the wallpaper you are trying to search..."
     random.shuffle(images)
   except Exception as e:
-    return "error" + str(e)      
+    return "error " + str(e)      
   return images
