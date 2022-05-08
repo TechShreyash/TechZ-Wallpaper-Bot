@@ -9,8 +9,8 @@ async def get_image(id):
 
 async def save_image(url): 
   data = await imagesdb.insert_one({"image": url})
-  id = data["_id"]
-  return id
+  id = data.inserted_id
+  return str(id)
   
 async def del_image(id): 
   data = await imagesdb.delete_one({"_id": id})
