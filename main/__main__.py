@@ -51,13 +51,15 @@ async def logo(bot, message: Message):
     if "error" in wall:
       return await x.edit(f"`❌ Something Went Wrong...`\n\nReport This Error In @TechZBots_Support \n\n`{wall}`")
     
-    wall = random.choice(wall)
+    img = random.choice(wall)
+    print(img)
       
     await x.edit("`🔄 Got It... Now Sending You`")
     
-    id = await save_image(wall)
+    id = await save_image(img)
+    print(id)
 
-    await message.reply_photo(wall,caption="**🏞 Wallpaper By @TechZWallBot**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Upload As File 📁", callback_data=f"wall {id}")]]))
+    await message.reply_photo(img,caption="**🏞 Wallpaper By @TechZWallBot**",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Upload As File 📁", callback_data=f"wall {id}")]]))
     
     await x.delete()
   except FloodWait:
@@ -67,7 +69,8 @@ async def logo(bot, message: Message):
       await x.delete()
     except:
       pass
-    return await message.reply_text("`❌ Something Went Wrong...`\n\nReport This Error In @TechZBots_Support")
+    print(e)
+    return await message.reply_text("`❌ Something Went Wrong...`\n\nReport This Error In @TechZBots_Support\n\n" + str(e))
 
 
 @app.on_message(filters.command("unsplash") & filters.incoming & filters.text & ~filters.forwarded & (
