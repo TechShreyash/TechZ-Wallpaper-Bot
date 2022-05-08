@@ -3,7 +3,7 @@ from main import db
 imagesdb = db.images
 
 async def get_image(id): 
-  data = await imagesdb.find_one({"_id": id})
+  data = await imagesdb.find_one({"_id": ObjectId(id)})
   image_url = data["image"]
   return image_url
 
@@ -13,5 +13,5 @@ async def save_image(url):
   return str(id)
   
 async def del_image(id): 
-  data = await imagesdb.delete_one({"_id": id})
+  data = await imagesdb.delete_one({"_id": ObjectId(id)})
   return
