@@ -28,11 +28,11 @@ HELP = """
 # Commands
 @app.on_message(filters.command("start"))
 async def start(bot, message: Message):
-  await message.reply_photo("https://telegra.ph/file/dd62dad81f1ace73233d4.jpg",START,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Help", callback_data="help_menu"), InlineKeyboardButton(text="Repo", url="https://github.com/TechShreyash/TechZ-Wallpaper-Bot")]]))
+  await message.reply_photo("https://telegra.ph/file/dd62dad81f1ace73233d4.jpg",caption=START,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Help", callback_data="help_menu"), InlineKeyboardButton(text="Repo", url="https://github.com/TechShreyash/TechZ-Wallpaper-Bot")]]))
 
 @app.on_message(filters.command("help"))
 async def help(bot, message: Message):
-  await message.reply_photo("https://telegra.ph/file/dd62dad81f1ace73233d4.jpg",HELP,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="start_menu")]]))
+  await message.reply_photo("https://telegra.ph/file/dd62dad81f1ace73233d4.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Back", callback_data="start_menu")]]))
 
 @app.on_message(filters.command("wall") & filters.incoming & filters.text & ~filters.forwarded & (
   filters.group | filters.private))
