@@ -4,5 +4,3 @@ aiohttp
 python-dotenv
 motor
 dnspython
-bson
-pymongo
