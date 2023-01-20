@@ -1,5 +1,6 @@
-pyrogram
+pyrogram==1.4.12
 TgCrypto
-requests
+aiohttp
+python-dotenv
 motor
 dnspython
