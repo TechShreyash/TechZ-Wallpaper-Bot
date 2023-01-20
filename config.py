@@ -1,18 +1,4 @@
-from os import getenv
-from dotenv import load_dotenv
-
-load_dotenv()
-
-# Get it from my.telegram.org
-API_ID = int(getenv("API_ID"))
-API_HASH = getenv("API_HASH")
-
-## Get it from @Botfather in Telegram.
-BOT_TOKEN = getenv("BOT_TOKEN")
-
-# API By TechZBots || https://t.me/TechZBots
-WALL_API = "https://techzbotsapi.herokuapp.com/wall?query="
-
-UNSPLASH_API = "https://techzbotsapi.herokuapp.com/unsplash?query="
-
-MONGO_DB_URI = getenv("MONGO_DB_URI","mongodb+srv://techz:wall@techzwallbotdb.katsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+API_ID = 2344247
+API_HASH = '853cae451f8091db916cd9ad395bbf12'
+BOT_TOKEN = '5634839476:AAG5fytvxG71nibkcCI_IM74n_8GhLywoRY'
+MONGO_DB_URI = "mongodb+srv://techz:wall@techzwallbotdb.katsq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
